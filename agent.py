@@ -95,7 +95,7 @@ def search_remediation_runbooks(query: str) -> str:
     """
     try:
         emb_client = GoogleGenerativeAIEmbeddings(
-            model="models/text-embedding-004",
+            model="models/gemini-embedding-2",
             google_api_key=GEMINI_API_KEY,
             task_type="RETRIEVAL_QUERY",
         )
@@ -156,7 +156,7 @@ SYSTEM_PROMPT = (
 
 def get_llm():
     return ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
+        model="gemini-3.5-flash-lite",
         google_api_key=GEMINI_API_KEY,
         temperature=0,
     ).bind_tools(ALL_TOOLS)

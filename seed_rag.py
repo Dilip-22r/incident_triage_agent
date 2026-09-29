@@ -80,7 +80,7 @@ RUNBOOKS = [
 
 def get_embeddings_client():
     return GoogleGenerativeAIEmbeddings(
-        model="models/text-embedding-004",
+        model="models/gemini-embedding-2-preview",
         google_api_key=GEMINI_API_KEY,
         task_type="RETRIEVAL_DOCUMENT",
     )
@@ -110,7 +110,7 @@ def seed_runbooks(db_url: str = None, embeddings_client=None) -> int:
                 inserted += cur.rowcount
         conn.commit()
 
-    print(f"Inserted {inserted} new runbook(s). (0 means already present — idempotent ✓)")
+    print(f"Inserted {inserted} new runbook(s). (0 means already present -- idempotent OK)")
     return inserted
 
 
